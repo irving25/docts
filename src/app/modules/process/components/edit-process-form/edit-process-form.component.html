@@ -1,0 +1,188 @@
+<form [formGroup]="processForm">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Company (disabled)" disabled value="Google">
+    </mat-form-field>
+  
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field id="fecha_creacion" color="primary" appearance="outline">
+            <mat-label>Fecha de creacion</mat-label>
+            <input
+              id="fecha_creacion"
+              type="textarea"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="fecha_creacion">
+            <mat-icon matSuffix
+                      aria-hidden="true">account_circle
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.fecha_creacion">
+              {{ formErrors.fecha_creacion }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field id="fecha_modificacion" color="primary" appearance="outline">
+            <mat-label>Fecha de modificacion</mat-label>
+            <input
+              id="fecha_modificacion"
+              type="textarea"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="fecha_modificacion">
+            <mat-icon matSuffix
+                      aria-hidden="true">account_box
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.fecha_modificacion">
+              {{ formErrors.fecha_modificacion }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field id="estatus_general" color="primary" appearance="outline">
+            <mat-label>Estatus general</mat-label>
+            <input
+              id="estatus_general"
+              type="select"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="estatus_general">
+            <mat-icon matSuffix
+                      aria-hidden="true">flag
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.estatus_general">
+              {{ formErrors.estatus_general }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <mat-form-field id="actividad_actual" color="primary" appearance="outline">
+              <mat-label>Actividad actual</mat-label>
+              <input
+                id="actividad_actual"
+                type="textarea"
+                matInput
+                required
+                autocomplete="on"
+                formControlName="actividad_actual">
+              <mat-icon matSuffix
+                        aria-hidden="true">hourglass_full
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.actividad_actual">
+                {{ formErrors.actividad_actual }}
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field id="id_reclutador" color="primary" appearance="outline">
+              <mat-label>Reclutador</mat-label>
+              <mat-select
+              placeholder="Reclutador"
+              formControlName="id_reclutador">
+              <mat-option *ngFor="let recruiter of recruiters"
+                          value="{{recruiter.key}}">
+                {{recruiter.namel}}
+                
+              </mat-option>
+            </mat-select>
+              <mat-icon matSuffix
+                        aria-hidden="true">wc
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.id_reclutador">
+                {{ formErrors.id_reclutador }}
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field id="id_candidato" color="primary" appearance="outline">
+              <mat-label>Candidato</mat-label>
+              <mat-select
+              placeholder="Cadidato"
+              formControlName="id_candidato">
+              <mat-option *ngFor="let candidate of candidates"
+                          value="{{candidate.key}}">
+                {{candidate.nombres}}
+                
+              </mat-option>
+            </mat-select>
+              <mat-icon matSuffix
+                        aria-hidden="true">cake
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.id_candidato">
+                {{ formErrors.id_candidato }}
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <mat-form-field id="id_examen" color="primary" appearance="outline">
+                <mat-label>Examen</mat-label>
+                <input
+                  id="id_examen"
+                  type="textarea"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="id_examen">
+                <mat-icon matSuffix
+                          aria-hidden="true">person_pin
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.id_examen">
+                  {{ formErrors.id_examen }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field id="lista_actividades" color="primary" appearance="outline">
+                <mat-label>Lista de actividades</mat-label>
+                <input
+                  id="lista_actividades"
+                  type="textarea"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="lista_actividades">
+                <mat-icon matSuffix
+                          aria-hidden="true">person
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.lista_actividades">
+                  {{ formErrors.lista_actividades }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+              </tr>
+    </table>
+    <button
+    id="cancelar"
+    mat-raised-button
+    color="accent"
+    (click)="cancel()">
+    Cancelar
+  </button>
+  <button
+    id="entrar"
+    mat-raised-button
+    type="submit"
+    [mat-dialog-close]="processEdit"
+    (click)="editProcess()"
+    [disabled]="!processForm.valid">
+    Guardar
+  </button>
+</form>
+
+  

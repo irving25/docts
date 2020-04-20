@@ -1,0 +1,301 @@
+<form [formGroup]="recruiterForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Company (disabled)" disabled value="Google">
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Nombre del reclutador</mat-label>
+          <input
+            id="namel"
+            type="textarea"
+            matInput
+            required
+            autocomplete="on"
+            value="{{data.namel}}"
+            formControlName="namel">
+          <mat-icon matSuffix
+                    aria-hidden="true">account_circle
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.namel">
+            {{ formErrors.namel }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input
+            id="lastname"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.lastname}}"
+            formControlName="lastname">
+          <mat-icon matSuffix
+                    aria-hidden="true">account_box
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.lastname">
+            {{ formErrors.lastname }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Nacionalidad</mat-label>
+          <input
+            id="nationality"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.nationality}}"
+            formControlName="nationality">
+          <mat-icon matSuffix
+                    aria-hidden="true">flag
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.nationality">
+            {{ formErrors.nationality }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+   <tr>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Edad</mat-label>
+          <input
+            id="age"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.age}}"
+            formControlName="age">
+          <mat-icon matSuffix
+                    aria-hidden="true">hourglass_full
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.age">
+            {{ formErrors.age }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Genero</mat-label>
+          <input
+            id="gender"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.gender}}"
+            formControlName="gender">
+          <mat-icon matSuffix
+                    aria-hidden="true">wc
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.gender">
+            {{ formErrors.gender }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input
+            id="birth_date"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.birth_date}}"
+            formControlName="birth_date">
+          <mat-icon matSuffix
+                    aria-hidden="true">cake
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.birth_date">
+            {{ formErrors.birth_date }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Rfc</mat-label>
+          <input
+            id="rfc"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.rfc}}"
+            formControlName="rfc">
+          <mat-icon matSuffix
+                    aria-hidden="true">person_pin
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.rfc">
+            {{ formErrors.rfc }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>ssn</mat-label>
+          <input
+            id="ssc"
+            type="textarea"
+            matInput
+
+            value="{{data.ssc}}"
+            formControlName="ssc">
+          <mat-icon matSuffix
+                    aria-hidden="true">person
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.ssc">
+            {{ formErrors.ssc }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Primer dia laborado</mat-label>
+          <input
+            id="start_date_labor"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.start_date_labor}}"
+            formControlName="start_date_labor">
+          <mat-icon matSuffix
+                    aria-hidden="true">check_box
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.start_date_labor">
+            {{ formErrors.start_date_labor }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Ultimo dia laborado</mat-label>
+          <input
+            id="end_date_labor"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.end_date_labor}}"
+            formControlName="end_date_labor">
+          <mat-icon matSuffix
+                    aria-hidden="true">check_box_outline_blank
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.end_date_labor">
+            {{ formErrors.end_date_labor }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Activo</mat-label>
+          <input
+            id="active"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.active}}"
+            formControlName="active">
+          <mat-icon matSuffix
+                    aria-hidden="true">adjust
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.active">
+            {{ formErrors.active }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Interno</mat-label>
+          <input
+            id="intern"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.intern}}"
+            formControlName="intern">
+          <mat-icon matSuffix
+                    aria-hidden="true">check_circle
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.intern">
+            {{ formErrors.intern }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Telefono</mat-label>
+          <input
+            id="phone"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.phone}}"
+            formControlName="phone">
+          <mat-icon matSuffix
+                    aria-hidden="true">local_phone
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.phone">
+            {{ formErrors.phone }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Celular</mat-label>
+          <input
+            id="cellphone"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.cellphone}}"
+            formControlName="cellphone">
+          <mat-icon matSuffix
+                    aria-hidden="true">settings_cell
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.cellphone">
+            {{ formErrors.cellphone }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <button
+    id="cancelar"
+    mat-raised-button
+    color="accent"
+    (click)="cancel()">
+    Cancelar
+  </button>
+  <button
+    id="entrar"
+    mat-raised-button
+    type="submit"
+    [mat-dialog-close]="data"
+    (click)="editRecruiter()"
+    [disabled]="!recruiterForm.valid">
+    Editar
+  </button>
+</form>

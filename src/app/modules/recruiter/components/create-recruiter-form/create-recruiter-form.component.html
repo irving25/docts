@@ -1,0 +1,293 @@
+<form [formGroup]="recruiterForm" (ngSubmit)="onSubmit(this.recruiterForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Company (disabled)" disabled value="Google">
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field id="nombre" color="primary" appearance="outline">
+          <mat-label>nombre del reclutador</mat-label>
+          <input
+            id="namel"
+            type="textarea"
+            matInput
+            required
+            autocomplete="on"
+            formControlName="namel">
+          <mat-icon matSuffix
+                    aria-hidden="true">account_circle
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.namel">
+            {{ formErrors.namel }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field id="apellido" color="primary" appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input
+            id="lastname"
+            type="textarea"
+            matInput
+            required
+            autocomplete="on"
+            formControlName="lastname">
+          <mat-icon matSuffix
+                    aria-hidden="true">account_box
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.lastname">
+            {{ formErrors.lastname }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field id="nct" color="primary" appearance="outline">
+          <mat-label>nacionalidad</mat-label>
+          <input
+            id="nationality"
+            type="select"
+            matInput
+            required
+            autocomplete="on"
+            formControlName="nationality">
+          <mat-icon matSuffix
+                    aria-hidden="true">flag
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.nationality">
+            {{ formErrors.nationality }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <mat-form-field id="ag" color="primary" appearance="outline">
+            <mat-label>Edad</mat-label>
+            <input
+              id="age"
+              type="textarea"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="age">
+            <mat-icon matSuffix
+                      aria-hidden="true">hourglass_full
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.age">
+              {{ formErrors.age }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field id="gen" color="primary" appearance="outline">
+            <mat-label>Genero</mat-label>
+            <input
+              id="gender"
+              type="textarea"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="gender">
+            <mat-icon matSuffix
+                      aria-hidden="true">wc
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.gender">
+              {{ formErrors.gender }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field id="fn" color="primary" appearance="outline">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input
+              id="birth_date"
+              type="select"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="birth_date">
+            <mat-icon matSuffix
+                      aria-hidden="true">cake
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.birth_date">
+              {{ formErrors.birth_date }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <mat-form-field id="rf" color="primary" appearance="outline">
+              <mat-label>RFC</mat-label>
+              <input
+                id="rfc"
+                type="textarea"
+                matInput
+                required
+                autocomplete="on"
+                formControlName="rfc">
+              <mat-icon matSuffix
+                        aria-hidden="true">person_pin
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.rfc">
+                {{ formErrors.rfc }}
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field id="ss" color="primary" appearance="outline">
+              <mat-label>SSC</mat-label>
+              <input
+                id="ssc"
+                type="textarea"
+                matInput
+                required
+                autocomplete="on"
+                formControlName="ssc">
+              <mat-icon matSuffix
+                        aria-hidden="true">person
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.ssc">
+                {{ formErrors.ssc }}
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field id="pdia" color="primary" appearance="outline">
+              <mat-label>Primer dia laborado</mat-label>
+              <input
+                id="start_date_labor"
+                type="select"
+                matInput
+                required
+                autocomplete="on"
+                formControlName="start_date_labor">
+              <mat-icon matSuffix
+                        aria-hidden="true">check_box
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.start_date_labor">
+                {{ formErrors.start_date_labor }}
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <mat-form-field id="udia" color="primary" appearance="outline">
+                <mat-label>Ultimo dia laborado</mat-label>
+                <input
+                  id="end_date_labor"
+                  type="textarea"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="end_date_labor">
+                <mat-icon matSuffix
+                          aria-hidden="true">check_box_outline_blank
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.end_date_labor">
+                  {{ formErrors.end_date_labor }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field id="act" color="primary" appearance="outline">
+                <mat-label>Activo</mat-label>
+                <input
+                  id="active"
+                  type="textarea"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="active">
+                <mat-icon matSuffix
+                          aria-hidden="true">adjust
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.active">
+                  {{ formErrors.active }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field id="int" color="primary" appearance="outline">
+                <mat-label>Interno</mat-label>
+                <input
+                  id="intern"
+                  type="select"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="intern">
+                <mat-icon matSuffix
+                          aria-hidden="true">check_circle
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.intern">
+                  {{ formErrors.intern }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <mat-form-field id="tel" color="primary" appearance="outline">
+                  <mat-label>Telefono</mat-label>
+                  <input
+                    id="phone"
+                    type="textarea"
+                    matInput
+                    required
+                    autocomplete="on"
+                    formControlName="phone">
+                  <mat-icon matSuffix
+                            aria-hidden="true">local_phone
+                  </mat-icon>
+                  <mat-error
+                    *ngIf="formErrors.phone">
+                    {{ formErrors.phone }}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field id="cel" color="primary" appearance="outline">
+                  <mat-label>Celular</mat-label>
+                  <input
+                    id="cellphone"
+                    type="textarea"
+                    matInput
+                    required
+                    autocomplete="on"
+                    formControlName="cellphone">
+                  <mat-icon matSuffix
+                            aria-hidden="true">settings_cell
+                  </mat-icon>
+                  <mat-error
+                    *ngIf="formErrors.cellphone">
+                    {{ formErrors.cellphone }}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+  </table>
+  <button
+    id="entrar"
+    mat-raised-button
+    color="accent"
+    type="submit"
+    [disabled]="!recruiterForm.valid">
+    Crear
+  </button>
+
+</form>

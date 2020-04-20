@@ -1,0 +1,65 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  padding-top: 50px;
+}
+.image{
+  background-image: url("../../../../../assets/image/coroname.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  height: 100%;
+}
+.login-card {
+  max-width: 531px;
+  margin-top: 668px;
+  margin-right: 700px;
+
+}
+
+.header-title {
+  height: 200px;
+  overflow: hidden;
+}
+
+.login-input {
+  width: 91.1%;
+  padding: 1rem;
+  font-size: 1.1em;
+  color: #737476;
+}
+
+.login-button {
+  padding: 0.7rem;
+  border-radius: 0;
+}
+
+.full-width {
+  width: 50%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+p {
+  font-weight: 100;
+}
+
+.credits {
+  margin: 1rem;
+  font-size: 0.7em;
+}
+
+mat-card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: inherit;
+}
+
+
+

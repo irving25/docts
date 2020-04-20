@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: auto;
+  width: auto;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@import '~@angular/material/_theming';
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+//$candy-app-primary: mat-palette($mat-indigo);
+//$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+//$candy-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+//$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+$custom-app-primary: mat-palette($mat-light-blue, 700);
+$custom-app-accent: mat-palette($mat-light-blue, A100);
+$custom-app-warn: mat-palette($mat-red);
+
+$custom-app-theme: mat-light-theme($custom-app-primary, $custom-app-accent, $custom-app-warn);
+
+@include angular-material-theme($custom-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  height: auto;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.50);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.mat-grid-tile.shadow {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.24);
+}
+
+html, body { height: 100%; }
+body { font-family: Roboto, "Helvetica Neue", sans-serif; }

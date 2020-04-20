@@ -1,0 +1,21 @@
+<app-header></app-header>
+<mat-drawer-container
+  class="example-container"
+  [autosize]=true
+  layout='row'>
+  <mat-drawer
+    #sidenav
+    class="example-sidenav"
+    [mode]="'push'"
+    [position]="'start'"
+    [autoFocus]="true"
+    [opened]="false">
+    <app-menu></app-menu>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <router-outlet name='content'></router-outlet>
+  </div>
+
+</mat-drawer-container>
+
+<app-footer></app-footer>

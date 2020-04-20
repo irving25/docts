@@ -1,0 +1,13 @@
+<mat-toolbar class="matero-toolbar">
+  <button mat-button class="matero-hamburger" (click)="clickFilter()" *ngIf="showToggle">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <app-app-user></app-app-user>
+
+  <!--
+  <button mat-button class="matero-hamburger" (click)="toggleSidenavNotice.emit()" fxHide.lt-sm>
+    <mat-icon>list</mat-icon>
+  </button>
+  -->
+</mat-toolbar>

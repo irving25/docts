@@ -1,0 +1,117 @@
+<!--Codigo HTML que define al componente para mostrar la lista de vacantes.
+Es una tabla del framework Angular Material.
+ver @https://material.angular.io/components/table/overview
+-->
+
+<!--Este es el buscador-->
+<mat-form-field>
+  <label for="busqueda"></label>
+  <input id="busqueda"
+         matInput
+         (keyup)="applyFilter($event.target.value)"
+         placeholder="Busqueda">
+</mat-form-field>
+
+<!---->
+<!--
+   Se define la tablas que contendra toda la informacion.
+   se le asigna la fuente de datos, ademas de otras propiedades como el sorteador, su clase css
+   y la directiva multiTemplateDataRows.
+-->
+<table mat-table
+       [dataSource]="vacancyDataSource"
+       multiTemplateDataRows="true"
+       matSort
+       class="mat-elevation-z8">
+
+  <!--  Header de la tabla: Contenedor ng
+    Aqui se imprimen en pantalla el nombre de las columnas definidas en el TS del componente.
+  * en el tag ng-container mediante una directiva de angular *ngFor se recorren las columnas
+    definidas en el archivo TS del componente.
+  * tag th - en la etiqueta th se imprime el valor de la propiedade header del columnRef.
+  * tag td - aqui se imprime el contenido de la propiedad cell del columnRef component.
+  -->
+  <ng-container
+    *ngFor="let column of columns; let i = index"
+    matColumnDef="{{column.columnDef}}">
+    <th mat-header-cell
+        mat-sort-header
+        *matHeaderCellDef> {{column.header}} </th>
+    <td mat-cell *matCellDef="let row"> {{column.cell(row)}}</td>
+    <mat-header-cell> Actions</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <button mat-raised-button>Edit</button>
+    </mat-cell>
+  </ng-container>
+
+
+  <!-- Detalle de la columna:
+  En este contenedor se define el contenido mostrado en la tabla cada ves que selecciona un elemento.
+  Se construye un elemento basado en la propiedad expandedVacancyElement del componente TS.
+  Se vincula ese elemento  con la animacion  @detailExpand, la animacion esta definida en la clase
+  vacancies-list.component.ts, esta informacion sera mostrada solo cuando se le de clic a un
+  elemento de la tabla.
+  -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="vacancyColumnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedVacancyElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <div class="example-element-position"> {{element.name}} </div>
+          <div class="example-element-symbol"> {{element.level}} </div>
+          <div class="example-element-name"> {{element.group}} </div>
+          <div class="example-element-weight"> {{element.quantityAvailable}} </div>
+        </div>
+        <div class="example-element-symbol"> {{element.salaryRange}} </div>
+        <div class="example-element-description">
+          {{element.timeStamp}}
+          <span class="example-element-description-attribution">{{element.active}}
+            -- Activa </span>
+        </div>
+        <div class="example-element-description">
+          <button mat-raised-button
+                  color="primary"
+                  (click)="editVacany(element)">
+            Editar
+          </button>
+          <button mat-raised-button
+                  color="warn"
+                  (click)="deleteVacancy(element)">Eliminar
+          </button>
+        </div>
+
+      </div>
+    </td>
+  </ng-container>
+
+  <!--  En esta fila se imprime la propiedad heade del objeto columnRef-->
+  <tr mat-header-row *matHeaderRowDef="vacancyColumnsToDisplay; sticky: true"></tr>
+
+  <!-- En esta fila se imprimen los valores de las propiedas del el objeto del detalle en la columnRef-->
+  <tr mat-row *matRowDef="let element; columns: vacancyColumnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedVacancyElement === element"
+      (click)="expandedVacancyElement = expandedVacancyElement === element ? null : element">
+  </tr>
+  <!-- En esta fila se imprime el valor del detalle del componente.-->
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+</table>
+<!-- fin de la tabla-->
+
+<!-- Este tag  imprime el componente con animacion de carga mientras los datos de la tabla
+son obtenidos por el servicio de firebase.
+ver @https://material.angular.io/components/progress-spinner/overview
+-->
+<mat-card *ngIf="isLoading"
+          style="display: flex; justify-content: center; align-items: center">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</mat-card>
+<!-- Elementos de paginación-->
+<mat-paginator
+  [length]="resultsLength"
+  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+</mat-paginator>

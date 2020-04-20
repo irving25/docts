@@ -1,0 +1,165 @@
+<form [formGroup]="vacancyForm" (ngSubmit)="onSubmit(this.vacancyForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Company (disabled)" disabled value="Google">
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field id="nombre" color="primary" appearance="outline">
+          <mat-label>nombre de la vacante</mat-label>
+          <input
+            id="name"
+            type="textarea"
+            matInput
+            required
+            autocomplete="on"
+            placeholder="programador jr"
+            formControlName="name">
+          <mat-icon matSuffix
+                    aria-hidden="true">account_box
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.name">
+            {{ formErrors.name }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field id="depto" color="primary" appearance="outline">
+          <mat-label>departmento</mat-label>
+          <mat-select
+          placeholder="Departamento"
+          formControlName="department">
+          <mat-option *ngFor="let deparment of departments"
+                      value="{{deparment.name}}">
+            {{deparment.name}}
+
+          </mat-option>
+        </mat-select>
+          <mat-icon matSuffix
+                    aria-hidden="true">apartment
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.department">
+            {{ formErrors.department }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field id="gpo" color="primary" appearance="outline">
+          <mat-label>agrupación</mat-label>
+          <mat-select
+          placeholder="Grupo"
+          formControlName="group">
+          <mat-option *ngFor="let group of groups"
+                      value="{{group.name}}">
+            {{group.name}}
+          </mat-option>
+        </mat-select>
+          <mat-icon matSuffix
+                    aria-hidden="true">radio_button_unchecked
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.group">
+            {{ formErrors.group }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field id="lbls" color="primary" appearance="outline">
+          <mat-label>Habilidad debil</mat-label>
+          <mat-chip-list #chipList aria-label="etiquetas selection">
+            <mat-chip *ngFor="let softSkill of softSkills" [selectable]="selectable"
+                      [removable]="removable" (removed)="remove(softSkill)">
+              {{softSkill.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input
+              placeholder="Nueva etiqueta"
+              id="labels"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="softSkills"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
+      </td>
+          <td>
+              <mat-form-field id="lbls2" color="primary" appearance="outline">
+                <mat-label>Habilidad fuerte</mat-label>
+                <mat-chip-list #chipList aria-label="etiquetas selection">
+                  <mat-chip *ngFor="let hardSkill of hardSkills" [selectable]="selectable"
+                            [removable]="removable" (removed)="remove2(hardSkill)">
+                    {{hardSkill.name}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input
+                    placeholder="Nueva etiqueta"
+                    id="labels2"
+                    matInput
+                    required
+                    autocomplete="on"
+                    formControlName="hardSkills"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add2($event)">
+                </mat-chip-list>
+              </mat-form-field>
+            </td>
+            <td>
+        <mat-label>nivel</mat-label>
+        <mat-form-field id="lvl" color="primary" appearance="outline">
+          <mat-label>nivel</mat-label>
+          <mat-select
+            placeholder="Nivel"
+            formControlName="level">
+            <mat-option *ngFor="let level of levels"
+                        value="{{level}}">
+              {{level}}
+            </mat-option>
+          </mat-select>
+          <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+          <mat-error
+            *ngIf="formErrors.department">
+            {{ formErrors.department }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-label>vacantes diponibles</mat-label>
+        <mat-form-field
+          id="quantityAvailable"
+          color="primary"
+          appearance="outline"
+          placeholder="1">
+          <input matInput
+                 type="number" placeholder="1"
+                 min="1"
+                 formControlName="quantityAvailable">
+          <mat-error *ngIf="vacancyForm.get('fontSize')?.invalid">Min size: 10px</mat-error>
+        </mat-form-field>
+        <mat-error
+          *ngIf="formErrors.quantityAvailable">
+          {{ formErrors.quantityAvailable }}
+        </mat-error>
+      </td>
+    </tr>
+  </table>
+  <button
+    id="entrar"
+    mat-raised-button
+    color="accent"
+    type="submit"
+    [disabled]="!vacancyForm.valid">
+    Crear
+  </button>
+
+</form>

@@ -1,0 +1,255 @@
+<form [formGroup]="candidateForm" (ngSubmit)="onSubmit(this.candidateForm.value)">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Company (disabled)" disabled value="Google">
+    </mat-form-field>
+  
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field id="nombres" color="primary" appearance="outline">
+            <mat-label>nombres del doctor</mat-label>
+            <input
+              id="nombres"
+              type="textarea"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="nombres">
+            <mat-icon matSuffix
+                      aria-hidden="true">account_circle
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.nombres">
+              {{ formErrors.nombres }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field id="apellidoP" color="primary" appearance="outline">
+            <mat-label>Apellido paterno</mat-label>
+            <input
+              id="apellidoP"
+              type="textarea"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="apellidoP">
+            <mat-icon matSuffix
+                      aria-hidden="true">account_box
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.apellidoP">
+              {{ formErrors.apellidoP }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field id="apellidoM" color="primary" appearance="outline">
+            <mat-label>Apellido materno</mat-label>
+            <input
+              id="apellidoM"
+              type="select"
+              matInput
+              required
+              autocomplete="on"
+              formControlName="apellidoM">
+            <mat-icon matSuffix
+                      aria-hidden="true">flag
+            </mat-icon>
+            <mat-error
+              *ngIf="formErrors.apellidoM">
+              {{ formErrors.apellidoM }}
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+        <tr>
+            <td>
+              <mat-form-field id="rf" color="primary" appearance="outline">
+                <mat-label>Cedula profecional</mat-label>
+                <input
+                  id="rfc"
+                  type="textarea"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="rfc">
+                <mat-icon matSuffix
+                          aria-hidden="true">person_pin
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.rfc">
+                  {{ formErrors.rfc }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field id="ss" color="primary" appearance="outline">
+                <mat-label>Telefono</mat-label>
+                <input
+                  id="nss"
+                  type="textarea"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="nss">
+                <mat-icon matSuffix
+                          aria-hidden="true">person
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.nss">
+                  {{ formErrors.nss }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+             <!-- <td>
+              <mat-form-field id="telefonoP" color="primary" appearance="outline">
+                <mat-label>Telefono principal</mat-label>
+                <input
+                  id="telefonoP"
+                  type="select"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="telefonoP">
+                <mat-icon matSuffix
+                          aria-hidden="true">check_box
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.telefonoP">
+                  {{ formErrors.telefonoP }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <mat-form-field id="telefonoS" color="primary" appearance="outline">
+                  <mat-label>Telefono Secundaria</mat-label>
+                  <input
+                    id="telefonoS"
+                    type="textarea"
+                    matInput
+                    required
+                    autocomplete="on"
+                    formControlName="telefonoS">
+                  <mat-icon matSuffix
+                            aria-hidden="true">check_box_outline_blank
+                  </mat-icon>
+                  <mat-error
+                    *ngIf="formErrors.telefonoS">
+                    {{ formErrors.telefonoS }}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field id="email" color="primary" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input
+                    id="email"
+                    type="textarea"
+                    matInput
+                    required
+                    autocomplete="on"
+                    formControlName="email">
+                  <mat-icon matSuffix
+                            aria-hidden="true">adjust
+                  </mat-icon>
+                  <mat-error
+                    *ngIf="formErrors.email">
+                    {{ formErrors.email }}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field id="gradoE" color="primary" appearance="outline">
+                  <mat-label>Grado de estudios</mat-label>
+                  <input
+                    id="gradoE"
+                    type="select"
+                    matInput
+                    required
+                    autocomplete="on"
+                    formControlName="gradoE">
+                  <mat-icon matSuffix
+                            aria-hidden="true">check_circle
+                  </mat-icon>
+                  <mat-error
+                    *ngIf="formErrors.gradoE">
+                    {{ formErrors.gradoE }}
+                  </mat-error>
+                </mat-form-field>
+              </td>    
+            </tr>
+            <tr>
+                <td>
+                  <mat-form-field id="titulado" color="primary" appearance="outline">
+                    <mat-label>Titulado</mat-label>
+                    <input
+                      id="titulado"
+                      type="textarea"
+                      matInput
+                      required
+                      autocomplete="on"
+                      formControlName="titulado">
+                    <mat-icon matSuffix
+                              aria-hidden="true">local_phone
+                    </mat-icon>
+                    <mat-error
+                      *ngIf="formErrors.titulado">
+                      {{ formErrors.titulado }}
+                    </mat-error>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field id="fecha_egreso" color="primary" appearance="outline">
+                    <mat-label>Fecha de egreso</mat-label>
+                    <input
+                      id="fecha_egreso"
+                      type="textarea"
+                      matInput
+                      required
+                      autocomplete="on"
+                      formControlName="fecha_egreso">
+                    <mat-icon matSuffix
+                              aria-hidden="true">settings_cell
+                    </mat-icon>
+                    <mat-error
+                      *ngIf="formErrors.fecha_egreso">
+                      {{ formErrors.fecha_egreso }}
+                    </mat-error>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field id="estadoC" color="primary" appearance="outline">
+                    <mat-label>Estado civil</mat-label>
+                    <input
+                      id="estadoC"
+                      type="textarea"
+                      matInput
+                      required
+                      autocomplete="on"
+                      formControlName="estadoC">
+                    <mat-icon matSuffix
+                              aria-hidden="true">hourglass_full
+                    </mat-icon>
+                    <mat-error
+                      *ngIf="formErrors.estadoC">
+                      {{ formErrors.estadoC }}
+                    </mat-error>
+                  </mat-form-field>
+                </td>
+                -->
+              </tr>
+    </table>
+    <button
+      id="entrar"
+      mat-raised-button
+      color="accent"
+      type="submit"
+      [disabled]="!candidateForm.valid">
+      Crear
+    </button>
+  
+  </form>
+  

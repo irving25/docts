@@ -1,0 +1,74 @@
+<mat-form-field>
+  <label for="busqueda"></label>
+  <input id="busqueda"
+         matInput
+         (keyup)="applyFilter($event.target.value)"
+         placeholder="Busqueda"></mat-form-field>
+
+
+<table mat-table
+       [dataSource]="departmentDataSource"
+       multiTemplateDataRows="true"
+       matSort
+       class="mat-elevation-z8">
+
+  <ng-container
+    *ngFor="let column of columns; let i = index"
+    matColumnDef="{{column.columnDef}}">
+    <th mat-header-cell
+        mat-sort-header
+        *matHeaderCellDef> {{column.header}} </th>
+    <td mat-cell *matCellDef="let row"> {{column.cell(row)}}  </td>
+    <mat-header-cell> Actions</mat-header-cell>
+    <mat-cell *cdkCellDef="let row">
+      <button mat-raised-button>Edit</button>
+    </mat-cell>
+  </ng-container>
+
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="departmentColumnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedDepartmentElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <div class="example-element-position"> {{element.name}} </div>
+          <div class="example-element-symbol"> {{element.description}} </div>
+        </div>
+        <div class="example-element-description">
+          <button mat-raised-button
+                  color="primary"
+                  (click)="editDepartment(element)">
+            Editar
+          </button>
+          <button mat-raised-button
+                  color="warn"
+                  (click)="deleteDepartment(element)">Eliminar
+          </button>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="departmentColumnsToDisplay; sticky: true"></tr>
+
+  <tr mat-row *matRowDef="let element; columns: departmentColumnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedDepartmentElement === element"
+      (click)="expandedDepartmentElement = expandedDepartmentElement === element ? null : element">
+  </tr>
+
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+</table>
+<mat-card *ngIf="isLoading"
+          style="display: flex; justify-content: center; align-items: center">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</mat-card>
+<mat-paginator
+  [length]="resultsLength"
+  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+</mat-paginator>

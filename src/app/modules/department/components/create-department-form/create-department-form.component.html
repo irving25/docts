@@ -1,0 +1,60 @@
+<form [formGroup]="departmentForm" (ngSubmit)="onSubmit(this.departmentForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Company (disabled)" disabled value="Google">
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Nombre del departamento</mat-label>
+          <input
+            id="name"
+            type="textarea"
+            matInput
+            required
+            autocomplete="on"
+            placeholder="R.H."
+            formControlName="name">
+          <mat-icon matSuffix
+                    aria-hidden="true">assignment
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.name">
+            {{ formErrors.name }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Descripcion</mat-label>
+          <textarea
+            id="description"
+            type="textarea"
+            matInput
+            required
+            autocomplete="on"
+            placeholder="Descripcion"
+            formControlName="description"></textarea>
+          <mat-icon matSuffix
+                    aria-hidden="true">apartment
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.description">
+            {{ formErrors.description }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+
+    </tr>
+
+  </table>
+  <button
+    id="entrar"
+    mat-raised-button
+    color="accent"
+    type="submit"
+    [disabled]="!departmentForm.valid">
+    Crear
+  </button>
+</form>

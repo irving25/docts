@@ -1,0 +1,112 @@
+<div class="color">
+  <nav mat-tab-nav-bar>
+    <mat-list dense>
+
+      <mat-list-item
+        (click)="setMenu(1)"
+        mat-tab-link>
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <span matLine>
+          <a onblur>Dashboard</a>
+        </span>
+        <mat-icon></mat-icon>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <!--
+      <mat-list-item
+        class="dropdown"
+        (click)="setMenu(2)"
+        mat-tab-link>
+        <mat-icon matListIcon>folder</mat-icon>
+        <span matLine>
+          <a onblur> Reclutadores </a>
+        </span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      -->
+
+      <mat-list-item
+        class="dropdown"
+        (click)="setMenu(3)"
+        mat-tab-link>
+        <mat-icon matListIcon>work</mat-icon>
+        <span matLine>
+          <a onblur> Vacantes </a>
+        </span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item
+      class="dropdown"
+      (click)="setMenu(4)"
+      mat-tab-link>
+      <mat-icon matListIcon>apartment</mat-icon>
+      <span matLine>
+        <a onblur> Departamentos </a>
+      </span>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item
+      class="dropdown"
+      (click)="setMenu(5)"
+      mat-tab-link>
+      <mat-icon matListIcon>group</mat-icon>
+      <span matLine>
+        <a onblur> Grupos </a>
+      </span>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item
+    class="dropdown"
+    (click)="setMenu(6)"
+    mat-tab-link>
+    <mat-icon matListIcon>contacts</mat-icon>
+    <span matLine>
+      <a onblur> Reclutadores </a>
+    </span>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+  <mat-list-item
+    class="dropdown"
+    (click)="setMenu(7)"
+    mat-tab-link>
+    <mat-icon matListIcon>emoji_people</mat-icon>
+    <span matLine>
+      <a onblur> Candidatos </a>
+    </span>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+  <mat-list-item
+    class="dropdown"
+    (click)="setMenu(8)"
+    mat-tab-link>
+    <mat-icon matListIcon>repeat</mat-icon>
+    <span matLine>
+      <a onblur> Procesos </a>
+    </span>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+    </mat-list>
+
+  </nav>
+  <mat-toolbar>
+    <span class="btn">Cerrar Sesión</span>
+    <button mat-icon-button
+            aria-label="Cerrar sesión"
+            (click)="closeSession()">
+      <mat-icon
+        color="warn"
+        aria-hidden="false"
+        aria-label="close session">
+        exit_to_app
+      </mat-icon>
+    </button>
+  </mat-toolbar>
+  </div>

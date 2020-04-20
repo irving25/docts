@@ -1,0 +1,15 @@
+.example-button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+button {
+  margin: .5%;
+}

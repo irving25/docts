@@ -1,0 +1,68 @@
+<form [formGroup]="groupForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Company (disabled)" disabled value="Google">
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Nombre del departamento</mat-label>
+          <input
+            id="name"
+            type="textarea"
+            matInput
+            required
+            autocomplete="on"
+            value="{{data.name}}"
+            formControlName="name">
+          <mat-icon matSuffix
+                    aria-hidden="true">account_box
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.name">
+            {{ formErrors.name }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field color="primary" appearance="outline">
+          <mat-label>Descripcion</mat-label>
+          <input
+            id="description"
+            type="textarea"
+            matInput
+            disabled
+            value="{{data.description}}"
+            formControlName="description">
+          <mat-icon matSuffix
+                    aria-hidden="true">apartment
+          </mat-icon>
+          <mat-error
+            *ngIf="formErrors.description">
+            {{ formErrors.description }}
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+  <button
+    id="cancelar"
+    mat-raised-button
+    color="accent"
+    (click)="cancel()">
+    Cancelar
+  </button>
+  <button
+    id="entrar"
+    mat-raised-button
+    type="submit"
+    [mat-dialog-close]="data"
+    (click)="editGroup()"
+    [disabled]="!groupForm.valid">
+    Editar
+  </button>
+</form>

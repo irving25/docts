@@ -1,0 +1,22 @@
+<h1 mat-dialog-title> clave: {{data.id}}</h1>
+<h1 mat-dialog-title>
+  estas apuntos de eliminar la siguiente vacante
+</h1>
+<div mat-dialog-content>
+  <p>{{data.name}}</p>
+  <p>{{data.level}}</p>
+  <p>{{data.department}}</p>
+  <p>{{data.group}}</p>
+</div>
+<div mat-dialog-actions>
+  <p>¿Estas seguro?</p>
+  <button mat-button
+          [mat-dialog-close]="false">
+    Cancelar
+  </button>
+  <button mat-button
+          [mat-dialog-close]="data"
+          cdkFocusInitial>
+    Si
+  </button>
+</div>

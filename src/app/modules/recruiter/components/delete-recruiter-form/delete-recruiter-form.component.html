@@ -1,0 +1,21 @@
+<h1 mat-dialog-title> clave: {{data.key}}</h1>
+<h1 mat-dialog-title>
+  estas apuntos de eliminar al siguiente reclutador
+</h1>
+<div mat-dialog-content>
+  <p>{{data.namel}}</p>
+  <p>{{data.lastname}}</p>
+
+</div>
+<div mat-dialog-actions>
+  <p>¿Estas seguro?</p>
+  <button mat-button
+          [mat-dialog-close]="false">
+    Cancelar
+  </button>
+  <button mat-button
+          [mat-dialog-close]="data"
+          cdkFocusInitial>
+    Si
+  </button>
+</div>
