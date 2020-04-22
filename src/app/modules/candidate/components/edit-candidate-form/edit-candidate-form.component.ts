@@ -142,15 +142,15 @@ console.log(this.levels);
     this.data.nombres = this.candidateForm.get('nombres').value;
     this.data.apellidoP = this.candidateForm.get('apellidoP').value;
     this.data.apellidoM = this.candidateForm.get('apellidoM').value;
-    this.data.estadoC = this.candidateForm.get('estadoC').value;
-    this.data.rfc = this.candidateForm.get('rfc').value;
-    this.data.nss = this.candidateForm.get('nss').value;
-    this.data.telefonoP = this.candidateForm.get('telefonoP').value;
+    //this.data.estadoC = this.candidateForm.get('estadoC').value;
+    //this.data.rfc = this.candidateForm.get('rfc').value;
+    //this.data.nss = this.candidateForm.get('nss').value;
+    //this.data.telefonoP = this.candidateForm.get('telefonoP').value;
     this.data.telefonoS = this.candidateForm.get('telefonoS').value;
     this.data.email = this.candidateForm.get('email').value;
-    this.data.gradoE = this.candidateForm.get('gradoE').value;
-    this.data.titulado = this.candidateForm.get('titulado').value;
-    this.data.fecha_egreso = this.candidateForm.get('fecha_egreso').value;
+    //this.data.gradoE = this.candidateForm.get('gradoE').value;
+    //this.data.titulado = this.candidateForm.get('titulado').value;
+   // this.data.fecha_egreso = this.candidateForm.get('fecha_egreso').value;
     this.firebaseCandidateServiceService.editCandidate(this.data);
       }
 }

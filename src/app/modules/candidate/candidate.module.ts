@@ -11,7 +11,7 @@ import { CreateCandidateFormComponent } from './components/create-candidate-form
 import { DeleteCandidateFormComponent } from './components/delete-candidate-form/delete-candidate-form.component';
 import { EditCandidateFormComponent } from './components/edit-candidate-form/edit-candidate-form.component';
 import { CandidateBaseComponent } from './pages/candidate-base/candidate-base.component';
-
+import {AuthService} from '../../shared/services/authentication/auth.service';
 
 
 @NgModule({
@@ -29,6 +29,9 @@ import { CandidateBaseComponent } from './pages/candidate-base/candidate-base.co
     MaterialModule,
     ReactiveFormsModule,
     FormsModule
+  ],
+  providers:[
+    AuthService
   ],
   entryComponents: [
     CreateCandidateFormComponent,

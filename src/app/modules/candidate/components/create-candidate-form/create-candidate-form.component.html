@@ -65,40 +65,78 @@
       </tr>
         <tr>
             <td>
-              <mat-form-field id="rf" color="primary" appearance="outline">
+              <mat-form-field id="cedula" color="primary" appearance="outline">
                 <mat-label>Cedula profecional</mat-label>
                 <input
-                  id="rfc"
+                  id="cedula"
                   type="textarea"
                   matInput
                   required
                   autocomplete="on"
-                  formControlName="rfc">
+                  formControlName="cedula">
                 <mat-icon matSuffix
                           aria-hidden="true">person_pin
                 </mat-icon>
                 <mat-error
-                  *ngIf="formErrors.rfc">
-                  {{ formErrors.rfc }}
+                  *ngIf="formErrors.cedula">
+                  {{ formErrors.cedula }}
                 </mat-error>
               </mat-form-field>
             </td>
-            <td>
-              <mat-form-field id="ss" color="primary" appearance="outline">
+            <td> 
+              <mat-form-field id="telefonoS" color="primary" appearance="outline">
                 <mat-label>Telefono</mat-label>
                 <input
-                  id="nss"
+                  id="telefonoS"
                   type="textarea"
                   matInput
                   required
                   autocomplete="on"
-                  formControlName="nss">
+                  formControlName="telefonoS">
                 <mat-icon matSuffix
                           aria-hidden="true">person
                 </mat-icon>
                 <mat-error
-                  *ngIf="formErrors.nss">
-                  {{ formErrors.nss }}
+                  *ngIf="formErrors.telefonoS">
+                  {{ formErrors.telefonoS }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td> 
+              <mat-form-field id="password" color="primary" appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input
+                  id="password"
+                  type="input"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="password">
+                <mat-icon matSuffix
+                          aria-hidden="true">person
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.password">
+                  {{ formErrors.password }}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field id="email" color="primary" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                  id="email"
+                  type="textarea"
+                  matInput
+                  required
+                  autocomplete="on"
+                  formControlName="email">
+                <mat-icon matSuffix
+                          aria-hidden="true">adjust
+                </mat-icon>
+                <mat-error
+                  *ngIf="formErrors.email">
+                  {{ formErrors.email }}
                 </mat-error>
               </mat-form-field>
             </td>

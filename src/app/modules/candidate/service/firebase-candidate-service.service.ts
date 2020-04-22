@@ -5,7 +5,7 @@ import {FirebaseListObservable, FirebaseObjectObservable} from '@angular/fire/da
 import {Observable} from 'rxjs';
 
 import { Candidate } from '../models/candidate';
-
+ 
 @Injectable({
   providedIn: 'root'
 })
@@ -22,15 +22,14 @@ export class FirebaseCandidateServiceService {
       nombres: candidate.nombres,
       apellidoP: candidate.apellidoP,
       apellidoM: candidate.apellidoM,
-      estadoC: candidate.estadoC,
-      rfc: candidate.rfc,
-      nss: candidate.nss,
-      telefonoP: candidate.telefonoP,
+      
+      
       telefonoS: candidate.telefonoS,
+      
+      cedula: candidate.cedula,
+      password: candidate.password,
       email: candidate.email,
-      gradoE: candidate.gradoE,
-      titulado: candidate.titulado,
-      fecha_egreso: candidate.fecha_egreso,
+      rol: candidate.rol,
     });
   }
 
@@ -77,15 +76,15 @@ editCandidate(candidate: Candidate): void {
     nombres: candidate.nombres,
     apellidoP: candidate.apellidoP,
     apellidoM: candidate.apellidoM,
-    estadoC: candidate.estadoC,
-    rfc: candidate.rfc,
-    nss: candidate.nss,
-    telefonoP: candidate.telefonoP,
+    //estadoC: candidate.estadoC,
+    //rfc: candidate.rfc,
+    //nss: candidate.nss,
+    //telefonoP: candidate.telefonoP,
     telefonoS: candidate.telefonoS,
     email: candidate.email,
-    gradoE: candidate.gradoE,
-    titulado: candidate.titulado,
-    fecha_egreso: candidate.fecha_egreso,
+    //gradoE: candidate.gradoE,
+    //titulado: candidate.titulado,
+    //fecha_egreso: candidate.fecha_egreso,
   })
   .then((value) => alert('candidate edition requested: ' + candidate.key) + ' !');
 }

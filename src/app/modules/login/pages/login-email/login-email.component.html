@@ -1,76 +1,155 @@
 <div class="image">
-<div class="login-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(this.loginForm.value)">
-    <mat-card class="login-card">
-      <mat-card-content class="text-center">
-        <h2>BIENVENIDO</h2>
-        <p>
-          Ingresa tus datos para registrarte.
-        </p>
-        <mat-form-field color="warn" appearance="outline">
-          <mat-label>login</mat-label>
-          <input
-            id="login"
-            type="email"
-            matInput
-            required
-            autocomplete="on"
-            placeholder="email@gmail.com"
-            value="usuario@gmail.com"
-            formControlName="login">
-          <mat-icon matSuffix
-                    aria-hidden="true">login
-          </mat-icon>
-          <mat-error
-            *ngIf="formErrors.login">
-            {{ formErrors.login }}
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field color="warn" appearance="outline">
-          <mat-label>password</mat-label>
-          <input
-            id="password"
-            [type]="hidePassword ? 'password' : 'text'"
-            matInput
-            required
-            maxlength="15"
-            autocomplete="on"
-            placeholder="contraseña"
-            value="$3cR3t"
-            formControlName="password">
-          <mat-icon matSuffix (click)="hidePassword = !hidePassword">
-            {{hidePassword ? 'visibility' : 'visibility_off'}}
-          </mat-icon>
-          <mat-error *ngIf="formErrors.password">
-            {{ formErrors.password }}
-          </mat-error>
-          <mat-hint align="start">
-            <strong>
-              <a href="#">¿olvidaste tus datos de acceso?</a>
-            </strong>
-          </mat-hint>
-          <mat-hint align="start">
-            
-          </mat-hint>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-footer>
-        <button type="button"
-          class="btn btn-block btn-lg"
-          id="entrar"
-          mat-raised-button
-          color="accent"
-          type="submit"
-          [disabled]="!loginForm.valid">
-          Ingresar
-        </button>
-      </mat-card-footer>
-    </mat-card>
-  </form>
-  <strong>
-    <button
-    (click)="openDialog()"
-    >Registrate</button>
-            </strong>
-</div>
+<!--<div class="login-container">-->
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(this.loginForm.value)">
+        <mat-card class="login-card">
+          <mat-card-content class="text-center">
+            <h2>DOCTORES</h2>
+            <p>
+              Ingresa tus datos para registrarte.
+            </p>
+            <mat-form-field color="warn" appearance="outline">
+              <mat-label>login</mat-label>
+              <input
+                id="login"
+                type="email"
+                matInput
+                required
+                autocomplete="on"
+                placeholder="email@gmail.com"
+                value="usuario@gmail.com"
+                formControlName="login">
+              <mat-icon matSuffix
+                        aria-hidden="true">login
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.login">
+                {{ formErrors.login }}
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field color="warn" appearance="outline">
+              <mat-label>password</mat-label>
+              <input
+                id="password"
+                [type]="hidePassword ? 'password' : 'text'"
+                matInput
+                required
+                maxlength="15"
+                autocomplete="on"
+                placeholder="contraseña"
+                value="$3cR3t"
+                formControlName="password">
+              <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+                {{hidePassword ? 'visibility' : 'visibility_off'}}
+              </mat-icon>
+              <mat-error *ngIf="formErrors.password">
+                {{ formErrors.password }}
+              </mat-error>
+              <mat-hint align="start">
+                <strong>
+                  <a href="#">¿olvidaste tus datos de acceso?</a>
+                </strong>
+              </mat-hint>
+              <mat-hint align="start">
+                
+              </mat-hint>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-footer>
+            <button type="button"
+              class="btn btn-block btn-lg"
+              id="entrar"
+              mat-raised-button
+              color="accent"
+              type="submit"
+              [disabled]="!loginForm.valid">
+              Ingresar
+            </button>
+          </mat-card-footer>
+        </mat-card>
+      </form>
+      <strong>
+        <button (click)="openDialog()">Registrate</button>
+      </strong>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(this.loginForm.value)">
+        <mat-card class="login-card">
+          <mat-card-content class="text-center">
+            <h2>USUARIOS</h2>
+            <p>
+              Ingresa tus datos para registrarte.
+            </p>
+            <mat-form-field color="warn" appearance="outline">
+              <mat-label>login</mat-label>
+              <input
+                id="login"
+                type="email"
+                matInput
+                required
+                autocomplete="on"
+                placeholder="email@gmail.com"
+                value="usuario@gmail.com"
+                formControlName="login">
+              <mat-icon matSuffix
+                        aria-hidden="true">login
+              </mat-icon>
+              <mat-error
+                *ngIf="formErrors.login">
+                {{ formErrors.login }}
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field color="warn" appearance="outline">
+              <mat-label>password</mat-label>
+              <input
+                id="password"
+                [type]="hidePassword ? 'password' : 'text'"
+                matInput
+                required
+                maxlength="15"
+                autocomplete="on"
+                placeholder="contraseña"
+                value="$3cR3t"
+                formControlName="password">
+              <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+                {{hidePassword ? 'visibility' : 'visibility_off'}}
+              </mat-icon>
+              <mat-error *ngIf="formErrors.password">
+                {{ formErrors.password }}
+              </mat-error>
+              <mat-hint align="start">
+                <strong>
+                  <a href="#">¿olvidaste tus datos de acceso?</a>
+                </strong>
+              </mat-hint>
+              <mat-hint align="start">
+                
+              </mat-hint>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-footer>
+            <button type="button"
+              class="btn btn-block btn-lg"
+              id="entrar"
+              mat-raised-button
+              color="accent"
+              type="submit"
+              [disabled]="!loginForm.valid">
+              Ingresar
+            </button>
+          </mat-card-footer>
+        </mat-card>
+      </form>
+      <strong>
+        <button (click)="openDialog()">Registrate</button>
+      </strong>
+    </mat-grid-tile>
+   
+  </mat-grid-list>
+  
+ 
+<!--</div>-->
 </div>

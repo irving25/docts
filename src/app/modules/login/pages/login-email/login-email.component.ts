@@ -7,7 +7,7 @@ import {MatDialog} from '@angular/material';
 import {CreateCandidateFormComponent} from "../../../candidate/components/create-candidate-form/create-candidate-form.component";
 import {AuthService} from '../../../../shared/services/authentication/auth.service';
 
-
+ 
 /**
  * Component para inicio de sesion.
  */

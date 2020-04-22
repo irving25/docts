@@ -32,15 +32,15 @@ export class CandidateListComponent implements AfterViewInit {
     {columnDef: 'nombres', header: 'nombres', cell: (row: Candidate) => `${row.nombres}`},
     {columnDef: 'apellidoP', header: 'apellido paterno', cell: (row: Candidate) => `${row.apellidoP}`},
     {columnDef: 'apellidoM', header: 'apellido materno', cell: (row: Candidate) => `${row.apellidoM}%`},
-    {columnDef: 'estadoC', header: 'estado civil', cell: (row: Candidate) => `${row.estadoC}%`},
-    {columnDef: 'rfc', header: 'rfc', cell: (row: Candidate) => `${row.rfc}%`},
-    {columnDef: 'nss', header: 'numero de seguro social', cell: (row: Candidate) => `${row.nss}%`},
-    {columnDef: 'telefonoP', header: 'telefono principal', cell: (row: Candidate) => `${row.telefonoP}%`},
+    //{columnDef: 'estadoC', header: 'estado civil', cell: (row: Candidate) => `${row.estadoC}%`},
+    //{columnDef: 'rfc', header: 'rfc', cell: (row: Candidate) => `${row.rfc}%`},
+    //{columnDef: 'nss', header: 'numero de seguro social', cell: (row: Candidate) => `${row.nss}%`},
+    //{columnDef: 'telefonoP', header: 'telefono principal', cell: (row: Candidate) => `${row.telefonoP}%`},
     {columnDef: 'telefonoS', header: 'telefono secundario', cell: (row: Candidate) => `${row.telefonoS}%`},
     {columnDef: 'email', header: 'email', cell: (row: Candidate) => `${row.email}%`},
-    {columnDef: 'gradoE', header: 'grado estudios', cell: (row: Candidate) => `${row.gradoE}%`},
-    {columnDef: 'titulado', header: 'titulado', cell: (row: Candidate) => `${row.titulado}%`},
-    {columnDef: 'fecha_egreso', header: 'fecha_egreso', cell: (row: Candidate) => `${row.fecha_egreso}%`},
+    //{columnDef: 'gradoE', header: 'grado estudios', cell: (row: Candidate) => `${row.gradoE}%`},
+    //{columnDef: 'titulado', header: 'titulado', cell: (row: Candidate) => `${row.titulado}%`},
+    //{columnDef: 'fecha_egreso', header: 'fecha_egreso', cell: (row: Candidate) => `${row.fecha_egreso}%`},
   ];
   candidateDataSource: MatTableDataSource<Candidate>;
   candidateColumnsToDisplay = this.columns.map(x => x.columnDef);

@@ -9,7 +9,7 @@ import * as uuid from 'uuid';
 import { Candidate } from '../../models/candidate';
 import {CandidateLevel} from '../../models/candidate-level.enum';
 import {FirebaseCandidateServiceService} from '../../service/firebase-candidate-service.service';
-
+import {AuthService} from '../../../../shared/services/authentication/auth.service';
 
 @Component({
   selector: 'app-create-candidate-form',
@@ -23,15 +23,17 @@ formErrors = {
     nombres: '',
     apellidoP: '',
     apellidoM: '',
-    estadoC: '',
-    rfc: '',
-    nss: '',
-    telefonoP: '',
+   // estadoC: '',
+    //rfc: '',
+    //nss: '',
+    //telefonoP: '',
     telefonoS: '',
     email: '',
-    gradoE: '',
-    titulado: '',
-    fecha_egreso: ''
+    //gradoE: '',
+    //titulado: '',
+    //fecha_egreso: '',
+    password: '',
+    cedula: ''
   };
   levels: any;
   validationMessages = {
@@ -48,6 +50,7 @@ formErrors = {
     apellidoM: {
       required: 'apellido materno requerido'
     },
+    /*
     estadoC: {
       required: 'estado civil requiredo.',
       minlength: 'Nivel de vacante debe tener por lo menos 8 caracteres.',
@@ -62,12 +65,14 @@ formErrors = {
     telefonoP: {
       required: 'cantidad de vacante requiredo.',
     },
+    */
     telefonoS: {
       required: 'cantidad de vacante requiredo.',
     },
     email: {
       required: 'cantidad de vacante requiredo.',
     },
+    /*
     gradoE: {
       required: 'cantidad de vacante requiredo.',
     },
@@ -76,12 +81,20 @@ formErrors = {
     },
     fecha_egreso: {
       required: 'cantidad de vacante requiredo.',
+    },
+    */
+    password:{
+      required: 'password requerido'
+    },
+    cedula: {
+      required: 'cedula requerida'
     }
   };
   
   constructor(private fb: FormBuilder,
     private snackBar: MatSnackBar,
-    private candidateService: FirebaseCandidateServiceService) {
+    private candidateService: FirebaseCandidateServiceService,
+    private authService:AuthService) {
 this.levels = Object.keys(CandidateLevel)
 .map(key => CandidateLevel[key]);
 console.log(this.levels);
@@ -97,15 +110,17 @@ buildForm(): void { // se contruye el formulario
     nombres: ['', [Validators.required]],
     apellidoP: ['', [Validators.required]],
     apellidoM: ['', [Validators.required]],
-    estadoC: ['', [Validators.required]],
-    rfc:['', [Validators.required]],
-    nss: ['', [Validators.required]],
-    telefonoP: ['', [Validators.required]],
+    //estadoC: ['', [Validators.required]],
+    //rfc:['', [Validators.required]],
+    //nss: ['', [Validators.required]],
+    //telefonoP: ['', [Validators.required]],
     telefonoS:['', [Validators.required]],
     email: ['', [Validators.required]],
-    gradoE: ['', [Validators.required]],
-    titulado:['', [Validators.required]],
-    fecha_egreso:['', [Validators.required]],
+    //gradoE: ['', [Validators.required]],
+    //titulado:['', [Validators.required]],
+    //fecha_egreso:['', [Validators.required]],
+    password: ['', [Validators.required]],
+    cedula: ['', [Validators.required]]
 });
   this.candidateForm.valueChanges.subscribe(data => this.onValueChanged(data));
   this.onValueChanged(); // reset validation messages
@@ -135,6 +150,7 @@ onValueChanged(data?: any) {
 
 onSubmit(candidateData) {
   console.log(candidateData);
+  /*
   this.candidateService
     .createCandidate(new Candidate(
       uuid.v4(),
@@ -162,6 +178,32 @@ onSubmit(candidateData) {
         });
       }
     );
+    */
+  this.authService.emailSignUp(candidateData.email, candidateData.password)
+  .then(user=>{
+    console.log("nuevo usuario");
+    console.log(user.user.uid);
+    this.candidateService.createCandidate(new Candidate(
+      user.user.uid,
+      candidateData.nombres,
+      candidateData.apellidoP,
+      candidateData.apellidoM,
+      candidateData.telefonoS,
+      candidateData.cedula,
+      candidateData.password,
+      candidateData.email,
+      "doctor"
+    )).then(newUser=>{
+      console.log(newUser);
+
+    })
+    .catch(err=>{
+      console.log(err);
+    });
+  })
+  .catch(error => {
+    console.log(error);
+  });
   this.candidateForm.reset();
 }
 
